@@ -24,7 +24,7 @@ def make_dir(dirname):
 
 def system():
     '''システム判定'''
-    val = {'Darwin': 'm', 'Windows':'w', 'Linux': 'l'}
+    val = {'Darwin': 'm', 'Windows': 'w', 'Linux': 'l'}
     name = platform.system()
     if name in val.keys():
         return val[name]
