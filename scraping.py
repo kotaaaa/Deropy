@@ -6,7 +6,21 @@
 '''
 
 import common
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import chromedriver_binary
 import subprocess
+
+
+def get_driver(width=960, height=540):
+    options = Options()
+    options.binary_location = common.CHROME_CANARY
+    options.add_argument('--headless')
+    options.add_argument('--hide-scrollbars')
+    options.add_argument('--window-size=' +
+                         str(width) + ',' + str(height))
+    driver = webdriver.Chrome(chrome_options=options)
+    return driver
 
 
 def screenShotFull(driver, filename, url=''):
@@ -30,6 +44,7 @@ def screenShotFull(driver, filename, url=''):
     subprocess.Popen(cmd, shell=True,
                      stdout=subprocess.PIPE,
                      stderr=subprocess.STDOUT)
+
 
 if __name__ == '__main__':
     print(common.CHROME_CANARY)
