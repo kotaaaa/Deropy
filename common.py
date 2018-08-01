@@ -12,6 +12,8 @@
 - CHROME_CANARY
 '''
 
+test
+
 import os
 import platform
 
