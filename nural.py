@@ -1,5 +1,4 @@
 
-
 import os
 from keras.models import model_from_json
 import matplotlib.pyplot as plt
