@@ -12,16 +12,28 @@
 - CHROME_CANARY
 '''
 
-test
-
 import os
+import re
 import platform
+from urllib.request import urlparse
 
 
 def make_dir(dirname):
     '''ディレクトリ作成(再帰)'''
     if not os.path.exists(dirname):
         os.makedirs(dirname)
+
+
+def url2filename(url):
+    '''urlからファイル名作成'''
+    o = urlparse(url)
+    filename = os.path.splitext(o.netloc + o.path)[0]
+    filename = re.sub(r'[:*?"<>|/\\]', '_', filename)
+    if filename[-1] == '_':
+        filename += 'index'
+    if len(filename) > 50:
+        filename = filename[:50]
+    return filename
 
 
 def system():
@@ -40,6 +52,12 @@ def system_func(mac, win, lin=None, others=None):
     return val[system()]
 
 
+def divide_df(df, ratio1, ratio2, shuffle=False):
+    '''データフレームを任意の比で分割'''
+    df_tmp = df.sample(frac=1) if shuffle else df
+    middle = round(len(df) * ratio1 / (ratio1 + ratio2))
+    return df_tmp[:middle].reset_index(drop=True), df_tmp[middle:].reset_index(drop=True)
+
 
 # Chrome Canaryアドレス (Mac用)
 CHROME_CANARY_MAC = '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
@@ -48,4 +66,4 @@ CHROME_CANARY = system_func(mac=CHROME_CANARY_MAC, win=CHROME_WIN)
 
 
 if __name__ == '__main__':
-    print(system_func(mac='yo', win='deso'))
+    print(system_func(mac='Mac', win='Windows', lin='Linux', others='cannot identify your OS'))

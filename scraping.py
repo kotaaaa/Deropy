@@ -5,7 +5,7 @@
     フルページ スクリーンショット
 '''
 
-import common
+import common as cmn
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_binary
@@ -14,7 +14,7 @@ import subprocess
 
 def get_driver(width=960, height=540):
     options = Options()
-    options.binary_location = common.CHROME_CANARY
+    options.binary_location = cmn.CHROME_CANARY
     options.add_argument('--headless')
     options.add_argument('--hide-scrollbars')
     options.add_argument('--window-size=' +
@@ -35,7 +35,7 @@ def screenShotFull(driver, filename, url=''):
     cw = driver.execute_script("return document.body.scrollWidth;")
     ch = driver.execute_script("return document.body.scrollHeight;")
     # Chrome Canary スクリーンショット
-    cmd = '"' + common.CHROME_CANARY + '"' \
+    cmd = '"' + cmn.CHROME_CANARY + '"' \
         + ' --headless' \
         + ' --hide-scrollbars' \
         + ' --screenshot=' + filename + '.png' \
@@ -47,4 +47,4 @@ def screenShotFull(driver, filename, url=''):
 
 
 if __name__ == '__main__':
-    print(common.CHROME_CANARY)
+    print(cmn.CHROME_CANARY)
