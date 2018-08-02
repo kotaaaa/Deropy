@@ -5,7 +5,7 @@
     フルページ スクリーンショット
 '''
 
-import common as cmn
+import myTools.common as cmn
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_binary
