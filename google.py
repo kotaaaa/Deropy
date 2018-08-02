@@ -3,7 +3,6 @@ import common as cmn
 
 import os
 import requests
-from urllib import request as req
 from urllib import parse
 from tqdm import tqdm
 import bs4
@@ -31,6 +30,7 @@ def get_images(keyword, result_dir, maximum=100):
             return
 
         ele = ele.contents[0].replace('"', '').split(',')
+
         eledict = dict()
         for e in ele:
             num = e.find(':')
@@ -57,4 +57,4 @@ def get_images(keyword, result_dir, maximum=100):
 
 
 if __name__ == '__main__':
-    get_images('ドラえもん', 'Test/ドラえもん/', maximum=5)
+    get_images('ドラえもん', 'Test/ドラえもん/', maximum=1)
