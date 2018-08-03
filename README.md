@@ -1,13 +1,10 @@
 # myTools
-#Python
----
 
 ## 構成
 * common.py
 * scraping.py
 * neural.py
 
----
 
 ## common.py
 ### 定数
@@ -17,14 +14,12 @@
 	* `system()`
 	* `system_func(mac, win, lin=None, others=None)`
 
----
 
 ## scraping.py
 ### 関数
 	* `screenShotFull(driver, filename, url='')`
 	フルページ スクリーンショット
 
----
 
 ## neural.py
 ### 関数
@@ -39,7 +34,6 @@
 	* `plot_hist(files, result_file, items)`
 	グラフ化
 
----
 
 ## google.py (Googleクラス)
 ### 関数
