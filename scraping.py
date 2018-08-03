@@ -13,6 +13,7 @@ import subprocess
 
 
 def get_driver(width=960, height=540):
+    '''Chromeドライバー'''
     options = Options()
     options.binary_location = cmn.CHROME_CANARY
     options.add_argument('--headless')
@@ -34,13 +35,14 @@ def screenShotFull(driver, filename, url=''):
     # ページサイズ取得
     cw = driver.execute_script("return document.body.scrollWidth;")
     ch = driver.execute_script("return document.body.scrollHeight;")
-    # Chrome Canary スクリーンショット
+    # コマンド作成
     cmd = '"' + cmn.CHROME_CANARY + '"' \
         + ' --headless' \
         + ' --hide-scrollbars' \
         + ' --screenshot=' + filename + '.png' \
         + ' --window-size=' + str(cw) + ',' + str(ch) \
         + ' ' + url
+    # コマンド実行
     subprocess.Popen(cmd, shell=True,
                      stdout=subprocess.PIPE,
                      stderr=subprocess.STDOUT)
