@@ -12,6 +12,7 @@
 - CHROME_CANARY
 '''
 
+str
 import os
 import re
 import platform
