@@ -1,10 +1,18 @@
 
-import myTools.common as cmn
+'''
+＜クラス＞
+- Google
+  - __init__(self)
+  - Search(self, keyword, type='text', maximum=100)
+  - query_gen(self, keyword, type)
+  - text_result(self, query_gen, maximum)
+  - image_result(self, query_gen, maximum)
+'''
 
-import os
+import Deropy.common as cmn
+
 import requests
 from urllib import parse
-from tqdm import tqdm
 from bs4 import BeautifulSoup
 import json
 
