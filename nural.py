@@ -5,14 +5,6 @@ import matplotlib.pyplot as plt
 plt.switch_backend('agg')
 
 
-def shuffle_lists(x_list, y_list):
-    '''データ・ラベルをシャッフル'''
-    zipped = list(zip(x_list, y_list))
-    np.random.shuffle(zipped)
-    x_result, y_result = zip(*zipped)
-    return np.asarray(x_result), np.asarray(y_result)
-
-
 def save_model(model, model_name='model', dir='models'):
     '''モデル・重みの保存'''
     make_dir(dir)
